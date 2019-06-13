@@ -79,7 +79,12 @@ class Server(object):
         :return: str
         """
 
-        # TODO: YOUR CODE HERE
+        return [
+            "You are in the nave of the cathedral. Multicolored light from the rose window shines down on you.",
+            "You are at the narthex of the cathedral, in front of the great bronze entrance doors.",
+            "You are in the apse of the cathedral. It is dark and smells faintly of incense.",
+            "You are standing in the north transept of the cathedral. There is a shrine with lit candles."
+        ][room number]
 
         pass
 
