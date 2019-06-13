@@ -168,9 +168,8 @@ class Server(object):
         :return: None
         """
 
-        # TODO: YOUR CODE HERE
-
-        pass
+        self.done = True
+        self.output_buffer = "Goodbye!"
 
     def route(self):
         """
@@ -198,7 +197,7 @@ class Server(object):
         :return: None 
         """
 
-        self.client_connection.sendall(b"OK! " + self.output_buffer.encode() + b"\n"
+        self.client_connection.sendall(b"OK! " + self.output_buffer.encode() + b"\n")
 
     def serve(self):
         self.connect()
