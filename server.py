@@ -86,8 +86,6 @@ class Server(object):
             "You are standing in the north transept of the cathedral. There is a shrine with lit candles."
         ][room number]
 
-        pass
-
     def greet(self):
         """
         Welcome a client to the game.
@@ -156,9 +154,7 @@ class Server(object):
         :return: None
         """
 
-        # TODO: YOUR CODE HERE
-
-        pass
+        self.output_buffer = 'You say, "{}"'.format(argument)
 
     def quit(self, argument):
         """
@@ -202,9 +198,7 @@ class Server(object):
         :return: None 
         """
 
-        # TODO: YOUR CODE HERE
-
-        pass
+        self.client_connection.sendall(b"OK! " + self.output_buffer.encode() + b"\n"
 
     def serve(self):
         self.connect()
