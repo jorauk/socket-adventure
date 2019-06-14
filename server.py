@@ -80,10 +80,10 @@ class Server(object):
         """
 
         return [
-            "You are in the nave of the cathedral. Multicolored light from the rose window shines down on you.",
-            "You are at the narthex of the cathedral, in front of the great bronze entrance doors.",
-            "You are in the apse of the cathedral. It is dark and smells faintly of incense.",
-            "You are standing in the north transept of the cathedral. There is a shrine with lit candles."
+            "You are in the nave of the cathedral. Multicolored light from the rose window shines down on you. Exits: north, east, west.",
+            "You are at the narthex of the cathedral, in front of the great bronze entrance doors. Exits: east.",
+            "You are in the apse of the cathedral. It is dark and smells faintly of incense. Exits: west.",
+            "You are standing in the north transept of the cathedral. There is a shrine with lit candles. Exits: south."
         ][room number]
 
     def greet(self):
@@ -138,9 +138,25 @@ class Server(object):
         :return: None
         """
 
-        # TODO: YOUR CODE HERE
-
-        pass
+        if argument.lower() == ("north" or "n") and self.room == 0:
+            self.room = 3
+                    
+        if argument.lower() == ("east" or "e") and self.room == 0:
+            self.room = 2
+                    
+        if argument.lower() == ("west" or "w") and self.room == 0:
+            self.room = 1
+                    
+        if argument.lower() == ("east" or "e") and self.room = 1:
+            self.room = 0
+                    
+        if argument.lower() == ("west" or "w") and self.room = 2:
+            self.room = 0
+                    
+        if argument.lower() == ("south" or "s") and self.room = 3:
+            self.room = 0
+            
+        self.output_buffer = self.room_description(self.room)
 
     def say(self, argument):
         """
