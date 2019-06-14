@@ -138,23 +138,21 @@ class Server(object):
         :return: None
         """
 
-        if argument.lower() == ("north" or "n") and self.room == 0:
-            self.room = 3
-                    
-        if argument.lower() == ("east" or "e") and self.room == 0:
-            self.room = 2
-                    
-        if argument.lower() == ("west" or "w") and self.room == 0:
-            self.room = 1
-                    
-        if argument.lower() == ("east" or "e") and self.room = 1:
-            self.room = 0
-                    
-        if argument.lower() == ("west" or "w") and self.room = 2:
-            self.room = 0
-                    
-        if argument.lower() == ("south" or "s") and self.room = 3:
-            self.room = 0
+        if self.room == 0:
+            if argument.lower() == ("north" or "n"):
+                self.room = 3
+            elif argument.lower() == ("east" or "e"):
+                self.room = 2
+            elif argument.lower() == ("west" or "w"):
+                self.room = 1
+        
+        elif:
+            if self.room == 1 and argument.lower() == ("east" or "e"):
+                self.room = 0    
+            elif self.room == 2 and argument.lower() == ("west" or "w"):
+                self.room = 0            
+            elif self.room == 3 and argument.lower() == ("south" or "s"):
+                self.room = 0
             
         self.output_buffer = self.room_description(self.room)
 
