@@ -43,7 +43,7 @@ class Server(object):
     each room have a unique description.
     """
 
-    game_name = "Realms of Venture"
+    game_name = "the Dark Cathedral"
 
     def __init__(self, port=50000):
         self.input_buffer = ""
@@ -84,7 +84,7 @@ class Server(object):
             "You are at the narthex of the cathedral, in front of the great bronze entrance doors. Exits: east.",
             "You are in the apse of the cathedral. It is dark and smells faintly of incense. Exits: west.",
             "You are standing in the north transept of the cathedral. There is a shrine with lit candles. Exits: south."
-        ][room number]
+        ][room_number]
 
     def greet(self):
         """
@@ -146,13 +146,12 @@ class Server(object):
             elif argument.lower() == ("west" or "w"):
                 self.room = 1
         
-        elif:
-            if self.room == 1 and argument.lower() == ("east" or "e"):
-                self.room = 0    
-            elif self.room == 2 and argument.lower() == ("west" or "w"):
-                self.room = 0            
-            elif self.room == 3 and argument.lower() == ("south" or "s"):
-                self.room = 0
+        if self.room == 1 and argument.lower() == ("east" or "e"):
+            self.room = 0    
+        if self.room == 2 and argument.lower() == ("west" or "w"):
+            self.room = 0            
+        if self.room == 3 and argument.lower() == ("south" or "s"):
+            self.room = 0
             
         self.output_buffer = self.room_description(self.room)
 
@@ -199,13 +198,16 @@ class Server(object):
         :return: None
         """
 
-        if self.input_buffer == "quit":
-            self.quit(None)
+        received = self.input_buffer.split(" ")
 
-        # TODO: Complete the `route` method sot hat it can also handle "move" and
-        # "say" commands.
-
-        pass
+        command = received.pop(0)
+        arguments = " ".join(received)
+        
+        {
+            'quit': self.quit,
+            'move': self.move,
+            'say': self.say,
+        }[command](arguments)
 
     def push_output(self):
         """
