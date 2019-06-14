@@ -199,7 +199,11 @@ class Server(object):
         :return: None
         """
 
-        # TODO: YOUR CODE HERE
+        if self.input_buffer == "quit":
+            self.quit(None)
+
+        # TODO: Complete the `route` method sot hat it can also handle "move" and
+        # "say" commands.
 
         pass
 
