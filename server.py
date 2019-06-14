@@ -139,18 +139,18 @@ class Server(object):
         """
 
         if self.room == 0:
-            if argument.lower() == ("north" or "n"):
+            if (argument.lower() == "north") or (argument.lower() == "n"):
                 self.room = 3
-            elif argument.lower() == ("east" or "e"):
+            elif (argument.lower() == "east") or (argument.lower() == "e"):
                 self.room = 2
-            elif argument.lower() == ("west" or "w"):
+            elif (argument.lower() == "west") or (argument.lower() == "w"):
                 self.room = 1
         
-        if self.room == 1 and argument.lower() == ("east" or "e"):
+        elif self.room == 1 and ((argument.lower() == "east") or (argument.lower() == "e")):
             self.room = 0    
-        if self.room == 2 and argument.lower() == ("west" or "w"):
+        elif self.room == 2 and ((argument.lower() == "west") or (argument.lower() == "w")):
             self.room = 0            
-        if self.room == 3 and argument.lower() == ("south" or "s"):
+        elif self.room == 3 and ((argument.lower() == "south") or (argument.lower() == "s")):
             self.room = 0
             
         self.output_buffer = self.room_description(self.room)
